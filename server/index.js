@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(cors());
 require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URL, { dbName: "reactnativehackathon" })
+mongoose.connect(process.env.MONGODB_URL, { dbName: 'rnhackathon' })
     .then(() => {
         console.log("MongoDB Connected");
     })
