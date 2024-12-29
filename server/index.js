@@ -15,20 +15,24 @@ mongoose.connect(process.env.MONGODB_URL, { dbName: 'rnhackathon' })
         console.error("Database connection failed:", error.message);
     })
 
-// const { PORT = 8000 } = process.env
+const { PORT = 8000 } = process.env
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on PORT ${PORT}`);
-// })
+app.listen(PORT, () => {
+    console.log(`Server is running on PORT ${PORT}`);
+})
 
 app.get("/", (req, res) => {
     res.send("Deployed on Vercel")
 })
 
+app.get("/check", (req, res) => {
+    res.send("Working")
+})
+
 const authRouter = require("./routes/auth")
-const todosRouter = require("./routes/todos")
+// const todosRouter = require("./routes/todos")
 
 app.use("/auth", authRouter)
-app.use("/todos", todosRouter)
+// app.use("/todos", todosRouter)
 
 module.exports = app;
